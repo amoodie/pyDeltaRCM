@@ -27,10 +27,9 @@ def test_initialize():
 
 def test_update():
     delta.update()
-    assert delta._delta._time == 1.0
+    assert delta._delta._time_iter == 1.0
 
 
 def test_update_frac():
-    with pytest.warns(UserWarning):
-        delta.update_frac(1)
-        assert delta._delta.time_step == 1.0
+    delta.update_frac(1)
+    assert delta._delta._time_iter == 2.0

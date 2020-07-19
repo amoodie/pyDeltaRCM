@@ -17,8 +17,8 @@ class BasePreprocessor(abc.ABC):
     Defines a prelimiary yaml reading, then handles the YAML "meta" tag
     parsing, model instatiation, and job running.
 
-    Subclasses create the high-level command line API 
-    and the high-level python API. 
+    Subclasses create the high-level command line API
+    and the high-level python API.
 
     .. note::
 
@@ -26,8 +26,9 @@ class BasePreprocessor(abc.ABC):
         out the Python API.
 
     """
+
     def extract_yaml_config(self):
-        """Preliminary YAML parsing. 
+        """Preliminary YAML parsing.
 
         Extract ``.yml`` file (``self.input_file``) into a dictionary, if
         provided. This dictionary provides a few keys used throughout the
@@ -106,6 +107,9 @@ class BasePreprocessor(abc.ABC):
             TODO: implement the parallel pool.
 
         """
+        if self._dryrun:
+            return
+
         if len(self.job_list) > 1:
             # check no mulitjobs, not implemented
             raise NotImplementedError()
@@ -172,18 +176,19 @@ class PreprocessorCLI(BasePreprocessor):
     defines a method to process the arguments from the command line (using the
     `argparse` package).
 
-    .. note:: 
+    .. note::
 
         You probably do not need to interact with this class directly.
         Instead, you can use the command line API as it is defined HERE XX or
-        the python API :class:`~pyDeltaRCM.preprocessor.Preprocessor`. 
+        the python API :class:`~pyDeltaRCM.preprocessor.Preprocessor`.
 
-        When the class is called from the command line the instantiated object's
-        method :meth:`run_jobs` is called by the
+        When the class is called from the command line the instantiated
+        object's method :meth:`run_jobs` is called by the
         :obj:`~pyDeltaRCM.preprocessor.preprocessor_wrapper` function that the
         CLI (entry point) calls directly.
 
     """
+
     def __init__(self):
         """Initialize the CLI preprocessor.
 
@@ -217,10 +222,15 @@ class PreprocessorCLI(BasePreprocessor):
 
         self.construct_job_list()
 
+        if self.args['dryrun']:
+            self._dryrun = True
+        else:
+            self._dryrun = False
+
     def process_arguments(self):
         """Process the command line arguments.
 
-        .. note:: 
+        .. note::
 
             The command line args are not directly passed to this function in
             any way.
@@ -251,9 +261,10 @@ class Preprocessor(BasePreprocessor):
 
     This is the python high-level API class that is callable from a python
     script. For complete documentation on the API configurations, see
-    XXXXXXXXXXXXXX. 
+    XXXXXXXXXXXXXX.
 
-    The class gives a way to configure and run multiple jobs from a python script.
+    The class gives a way to configure and run multiple jobs from a python
+    script.
 
     Examples
     --------
@@ -267,6 +278,7 @@ class Preprocessor(BasePreprocessor):
         >>> pp.run_jobs()
 
     """
+
     def __init__(self, input_file=None, timesteps=None):
         """Initialize the python preprocessor.
 
@@ -291,6 +303,7 @@ class Preprocessor(BasePreprocessor):
 
         """
         super().__init__()
+        self._dryrun = False
 
         if input_file:
             self.input_file = input_file
