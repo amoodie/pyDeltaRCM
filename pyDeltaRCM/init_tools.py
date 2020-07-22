@@ -321,7 +321,7 @@ class init_tools(object):
         """Creates sparse array to store stratigraphy data."""
         if self.save_strata:
 
-            self.strata_counter = 0
+            self.strata_counter = 1
 
             self.n_steps = 5 * self.save_dt
 
