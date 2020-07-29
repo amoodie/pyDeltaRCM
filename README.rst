@@ -2,7 +2,7 @@
 pyDeltaRCM_WMT
 **************
 
-.. image:: https://github.com/DeltaRCM/pyDeltaRCM_WMT/workflows/actions/badge.svg
+.. image:: https://github.com/DeltaRCM/pyDeltaRCM_WMT/workflows/build/badge.svg
     :target: https://github.com/DeltaRCM/pyDeltaRCM_WMT/actions
 
 .. image:: https://codecov.io/gh/DeltaRCM/pyDeltaRCM_WMT/branch/develop/graph/badge.svg
