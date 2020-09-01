@@ -167,3 +167,41 @@ class debug_tools(object):
                 self._plot_ind(iind, *args, **kwargs)
         else:
             self._plot_ind(ind, *args, **kwargs)
+
+    def _plot_line(self, array, *args, **kwargs):
+        ax = kwargs.pop('ax', None)
+        block = kwargs.pop('block', False)
+
+        if not ax:
+            ax = plt.gca()
+
+        if len(args) == 0:
+            args = 'r.'
+
+        if array.ndim == 1:
+            _array = np.zeros((array.shape[0], 2))
+            for i in range(array.shape[0]):
+                _array[i, :] = shared_tools.custom_unravel(array[i], self.depth.shape)
+
+        _array += np.random.uniform(0, 0.3, size=(_array.shape))
+
+        plt.plot(_array[:, 1], _array[:, 0], *args, **kwargs)
+
+    def show_line(self, line, *args, **kwargs):
+        """Show lines within the model domain.
+
+
+
+        Other Parameters
+        ----------------
+        *args : :obj:`str`, optional
+            Matlab-style point specifications, e.g., ``'r*'``, ``'bs'``.
+
+        **kwargs : optional
+            Any `kwargs` supported by `matplotlib.pyplot.plt`.
+
+        """
+        if isinstance(line, list):
+            self._plot_line(np.array(line), *args, **kwargs)
+        else:
+            self._plot_line(line, *args, **kwargs)
