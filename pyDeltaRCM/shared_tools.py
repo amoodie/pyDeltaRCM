@@ -1,3 +1,4 @@
+import os, sys
 
 import numpy as np
 
@@ -18,19 +19,43 @@ def get_jwalk():
                      [1, 1, 1]], dtype=np.int64)
 
 
+def get_random_genflag():
+    _flag = os.getenv('NUMBA_DISABLE_JIT', 0)
+    try:
+        _flag = int(_flag)
+    except Error as e:
+        raise e
+    return _flag
+
+
 @njit
 def set_random_seed(_seed):
     np.random.seed(_seed)
 
 
 def get_random_state():
-    ptr = _helperlib.rnd_get_np_state_ptr()
-    return _helperlib.rnd_get_state(ptr)
+    _flag = get_random_genflag()
+    if _flag == 1:
+        rs =  np.random.get_state()
+    elif _flag == 0:
+        ptr = _helperlib.rnd_get_np_state_ptr()
+        rs = _helperlib.rnd_get_state(ptr)
+    else:
+        raise KeyError('Bad value for genflag.')
+    return rs
 
 
 def set_random_state(_state_tuple):
-    ptr = _helperlib.rnd_get_np_state_ptr()
-    _helperlib.rnd_set_state(ptr, _state_tuple)
+    _flag = get_random_genflag()
+    if _flag == 1:
+        _adj_state = ('MT19937', np.array(_state_tuple[1], dtype=np.uint32),
+                  _state_tuple[0], 0, 0.0)
+        np.random.set_state(_adj_state)
+    elif _flag == 0:
+        ptr = _helperlib.rnd_get_np_state_ptr()
+        _helperlib.rnd_set_state(ptr, _state_tuple)
+    else:
+        raise KeyError('Bad value for genflag.')
 
 
 @njit
