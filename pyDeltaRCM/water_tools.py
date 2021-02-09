@@ -5,6 +5,10 @@ import abc
 
 from . import shared_tools
 
+
+import matplotlib.pyplot as plt
+from pytictoc import TicToc
+
 # tools for water routing algorithms
 
 
@@ -36,6 +40,8 @@ class water_tools(abc.ABC):
         All parcels are processed in parallel, taking one step for each loop
         of the ``while`` loop.
         """
+        __t = TicToc()
+        __t.tic()
         _msg = 'Beginning stepping of water parcels'
         self.log_info(_msg, verbosity=2)
 
@@ -52,6 +58,8 @@ class water_tools(abc.ABC):
         self.qxn.flat[start_indices] += 1
         self.qyn.flat[start_indices] += 0  # this could be omitted...
         self.qwn.flat[start_indices] += self.Qp_water / self._dx / 2
+
+        self._directions = np.zeros_like(self.free_surf_walk_inds)
 
         # load the initial indices into the walk indices
         self.free_surf_walk_inds[:, _step] = start_indices
@@ -82,6 +90,8 @@ class water_tools(abc.ABC):
                 self.iwalk_flat,
                 self.jwalk_flat,
                 self.eta.shape)
+
+            self._directions[:, _step] = new_direction
 
             # determine the step of each parcel made based on the new direction
             dist, istep, jstep, astep = shared_tools.get_steps(
@@ -136,6 +146,34 @@ class water_tools(abc.ABC):
                     new_inds[boundary], astep[boundary],
                     jstep[boundary], istep[boundary],
                     update_current=False, update_next=True)
+
+        _qxn, _qyn, _qwn = _accumulate_Qs(
+            self.free_surf_walk_inds, self._directions, self.cell_type,
+            self.Qp_water, self._dx, self.iwalk_flat, self.jwalk_flat)
+
+        _qxn = _qxn.reshape(self.qxn.shape)
+        _qyn = _qyn.reshape(self.qyn.shape)
+        _qwn = _qwn.reshape(self.qwn.shape)
+
+        fig, ax = plt.subplots(3, 3, sharex=True, sharey=True)
+        ax[0, 0].imshow(self.qxn)
+        ax[0, 1].imshow(_qxn)
+        ax[0, 2].imshow(self.qxn - _qxn)
+        ax[1, 0].imshow(self.qyn)
+        ax[1, 1].imshow(_qyn)
+        ax[1, 2].imshow(self.qyn - _qyn)
+        ax[2, 0].imshow(self.qwn)
+        ax[2, 1].imshow(_qwn)
+        ax[2, 2].imshow(self.qwn - _qwn)
+        ax[0, 0].set_ylabel('qxn')
+        ax[1, 0].set_ylabel('qyn')
+        ax[2, 0].set_ylabel('qwn')
+        ax[2, 0].set_xlabel('original')
+        ax[2, 1].set_xlabel('new')
+        ax[2, 2].set_xlabel('diff')
+        plt.show()
+
+        __t.toc()
 
     def compute_free_surface(self):
         """Calculate free surface after routing all water parcels.
@@ -687,6 +725,94 @@ One issue I see right away is that, although the check only looks for loops if
 the step is beyond L0, it will trigger on any loop that is within the L0 too.
 This NEEDS to be fixed. Hopefully that will help.
 """
+
+
+@njit
+def _accumulate_Qs(free_surf_walk_inds, directions, cell_type,
+                   Qp_water, dx, iwalk_flat, jwalk_flat):
+    """Update discharge field values after one set of water parcel steps."""
+
+    # nparcels = free_surf_walk_inds.shape[0]
+    domain_shape = cell_type.shape
+    L, W = domain_shape
+    cell_type_flat = cell_type.ravel()
+
+    qxn = np.zeros((L * W))
+    qyn = np.zeros((L * W))
+    qwn = np.zeros((L * W))
+
+    idx = 0
+    current_inds = free_surf_walk_inds[:, idx]
+
+    qxn[current_inds] += 1
+    qyn[current_inds] += 0  # this could be omitted...
+    qwn[current_inds] += Qp_water / dx / 2
+
+    while np.sum(current_inds) > 0:
+
+        # extract next inds *as recorded*
+        next_inds = free_surf_walk_inds[:, idx + 1]
+
+        # get the direction of the step between current_inds and next_inds
+        steps_direction = directions[:, idx + 1]
+
+        # get the stepped-ness
+        dist, istep, jstep, astep = shared_tools.get_steps(
+            steps_direction,
+            iwalk_flat,
+            jwalk_flat)
+
+        # get the potential new indices
+        #     (if no step correction were applied)
+        potential_inds = _calculate_new_ind(
+            current_inds,
+            steps_direction,
+            iwalk_flat,
+            jwalk_flat,
+            domain_shape)
+
+        # any cells that will end the timestep at the 0 index,
+        #     should not be counted
+        astep[next_inds == 0] = 0
+
+        # update the current and potential steps
+        qxn = _update_dirQfield(
+            qxn[:], dist, current_inds,
+            astep, jstep)
+        qyn = _update_dirQfield(
+            qyn[:], dist, current_inds,
+            astep, istep)
+        qwn = _update_absQfield(
+            qwn[:], dist, current_inds,
+            astep, Qp_water, dx)
+
+        qxn = _update_dirQfield(
+            qxn[:], dist, potential_inds,
+            astep, jstep)
+        qyn = _update_dirQfield(
+            qyn[:], dist, potential_inds,
+            astep, istep)
+        qwn = _update_absQfield(
+            qwn[:], dist, potential_inds,
+            astep, Qp_water, dx)
+
+        # if potential was edge, balance flux at edge
+        whr_edge = cell_type_flat[potential_inds] == -1
+        qxn = _update_dirQfield(
+            qxn[:], dist[whr_edge], potential_inds[whr_edge],
+            astep[whr_edge], jstep[whr_edge])
+        qyn = _update_dirQfield(
+            qyn[:], dist[whr_edge], potential_inds[whr_edge],
+            astep[whr_edge], istep[whr_edge])
+        qwn = _update_absQfield(
+            qwn[:], dist[whr_edge], potential_inds[whr_edge],
+            astep[whr_edge], Qp_water, dx)
+
+        # step to the next location
+        current_inds = free_surf_walk_inds[:, idx + 1]
+        idx += 1
+
+    return qxn, qyn, qwn
 
 
 @njit
