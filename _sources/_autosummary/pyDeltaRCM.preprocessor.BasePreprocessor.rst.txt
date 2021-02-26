@@ -1,0 +1,28 @@
+﻿pyDeltaRCM.preprocessor.BasePreprocessor
+========================================
+
+.. currentmodule:: pyDeltaRCM.preprocessor
+
+.. autoclass:: BasePreprocessor
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~BasePreprocessor.__init__
+      ~BasePreprocessor.construct_job_file_list
+      ~BasePreprocessor.expand_yaml_ensemble
+      ~BasePreprocessor.expand_yaml_matrix
+      ~BasePreprocessor.preliminary_yaml_parsing
+      ~BasePreprocessor.run_jobs
+      ~BasePreprocessor.write_yaml_config
+   
+   
+
+   
+   
+   
