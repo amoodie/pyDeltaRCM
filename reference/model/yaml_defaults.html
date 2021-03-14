@@ -16,7 +16,7 @@
     <script src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Preprocessor" href="../preprocessor/index.html" />
+    <link rel="next" title="Available Model Hooks" href="model_hooks.html" />
     <link rel="prev" title="pyDeltaRCM.model.DeltaModel" href="../../_autosummary/pyDeltaRCM.model.DeltaModel.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -26,7 +26,7 @@
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../preprocessor/index.html" title="Preprocessor"
+          <a href="model_hooks.html" title="Available Model Hooks"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="../../_autosummary/pyDeltaRCM.model.DeltaModel.html" title="pyDeltaRCM.model.DeltaModel"
@@ -213,13 +213,7 @@
 <span class="normal">165</span>
 <span class="normal">166</span>
 <span class="normal">167</span>
-<span class="normal">168</span>
-<span class="normal">169</span>
-<span class="normal">170</span>
-<span class="normal">171</span>
-<span class="normal">172</span>
-<span class="normal">173</span>
-<span class="normal">174</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">out_dir</span><span class="p">:</span>
+<span class="normal">168</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">out_dir</span><span class="p">:</span>
   <span class="nt">type</span><span class="p">:</span> <span class="s">&#39;str&#39;</span>
   <span class="nt">default</span><span class="p">:</span> <span class="s">&#39;deltaRCM_Output&#39;</span>
 <span class="nt">verbose</span><span class="p">:</span>
@@ -279,13 +273,7 @@
 <span class="nt">toggle_subsidence</span><span class="p">:</span>
   <span class="nt">type</span><span class="p">:</span> <span class="s">&#39;bool&#39;</span>
   <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
-<span class="nt">theta1</span><span class="p">:</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;float&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;int&#39;</span><span class="p p-Indicator">]</span>
-  <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">-1.0471975511965976</span>
-<span class="nt">theta2</span><span class="p">:</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;float&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;int&#39;</span><span class="p p-Indicator">]</span>
-  <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1.0471975511965976</span>
-<span class="nt">sigma_max</span><span class="p">:</span>
+<span class="nt">subsidence_rate</span><span class="p">:</span>
   <span class="nt">type</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;float&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;int&#39;</span><span class="p p-Indicator">]</span>
   <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2e-9</span>
 <span class="nt">start_subsidence</span><span class="p">:</span>
@@ -352,7 +340,7 @@
   <span class="nt">type</span><span class="p">:</span> <span class="s">&#39;bool&#39;</span>
   <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
 <span class="nt">resume_checkpoint</span><span class="p">:</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="s">&#39;bool&#39;</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;bool&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;str&#39;</span><span class="p p-Indicator">]</span>
   <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
 <span class="nt">omega_sfc</span><span class="p">:</span>
   <span class="nt">type</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;float&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;int&#39;</span><span class="p p-Indicator">]</span>
@@ -408,8 +396,8 @@
   <p class="topless"><a href="../../_autosummary/pyDeltaRCM.model.DeltaModel.html"
                         title="previous chapter">pyDeltaRCM.model.DeltaModel</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../preprocessor/index.html"
-                        title="next chapter">Preprocessor</a></p>
+  <p class="topless"><a href="model_hooks.html"
+                        title="next chapter">Available Model Hooks</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -438,7 +426,7 @@
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../preprocessor/index.html" title="Preprocessor"
+          <a href="model_hooks.html" title="Available Model Hooks"
              >next</a> |</li>
         <li class="right" >
           <a href="../../_autosummary/pyDeltaRCM.model.DeltaModel.html" title="pyDeltaRCM.model.DeltaModel"
@@ -451,7 +439,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, The DeltaRCM Team.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
     </div>
   </body>
 </html>
