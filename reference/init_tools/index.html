@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
     <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -130,7 +131,7 @@ setting.</p>
 <dl class="py method">
 <dt id="pyDeltaRCM.init_tools.init_tools.init_output_infrastructure">
 <code class="sig-name descname"><span class="pre">init_output_infrastructure</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyDeltaRCM.init_tools.init_tools.init_output_infrastructure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize the output infrastructure (i.e., folder).</p>
+<dd><p>Initialize the output infrastructure (folder and save lists).</p>
 <p>This method is the first called in the initialization of the
 <cite>DeltaModel</cite>, after the configuration variables have been imported.</p>
 </dd></dl>
@@ -141,12 +142,6 @@ setting.</p>
 <dd><p>Initialize the sediment router object here.</p>
 <p>These are preinitialized because the “boxing” for jitted functions is
 expensive, so we avoid boxing up the constants on each iteration.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="pyDeltaRCM.init_tools.init_tools.init_stratigraphy">
-<code class="sig-name descname"><span class="pre">init_stratigraphy</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyDeltaRCM.init_tools.init_tools.init_stratigraphy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates sparse array to store stratigraphy data.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -168,11 +163,10 @@ DeltaModel class.</p>
 <dd><p>Load the checkpoint from the .npz file.</p>
 <p>Uses the file at the path determined by <cite>self.prefix</cite> and a file named
 <cite>checkpoint.npz</cite>. There are a few pathways for loading, which depend
-on 1) the status of the <code class="xref py py-obj docutils literal notranslate"><span class="pre">save_strata</span></code> option, 2) the status of
-additional grid-saving options, 3) the presence of a netCDF output
-file at the expected output location, and 4) the status of the
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">defer_output</span></code> parameter passed to this method as an optional
-argument.</p>
+on 1) the status of additional grid-saving options, 2) the presence of
+a netCDF output file at the expected output location, and 3) the status
+of the <code class="xref py py-obj docutils literal notranslate"><span class="pre">defer_output</span></code> parameter passed to this method as an
+optional argument.</p>
 <p>As a standard user, you should not need to worry about any of these
 pathways or options. However, if you are developing pyDeltaRCM or
 customizing the model in any way that involves loadind from
