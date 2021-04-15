@@ -288,7 +288,9 @@ They generally take a large number of arrays and constants and return a new arra
 <dl class="py function">
 <dt id="pyDeltaRCM.water_tools._get_weight_at_cell_water">
 <code class="sig-prename descclassname"><span class="pre">pyDeltaRCM.water_tools.</span></code><code class="sig-name descname"><span class="pre">_get_weight_at_cell_water</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ind</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_sfc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth_nbrs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ct_nbrs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dry_depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyDeltaRCM.water_tools._get_weight_at_cell_water" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Compute water weights for a given cell.</p>
+<p>This is a jitted function called by <code class="xref py py-func docutils literal notranslate"><span class="pre">_get_water_weight_array()</span></code>.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="pyDeltaRCM.water_tools._choose_next_directions">
@@ -526,7 +528,7 @@ with the resultant computed water surface.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, The DeltaRCM Team.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.3.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
     </div>
   </body>
 </html>

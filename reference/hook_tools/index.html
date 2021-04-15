@@ -140,20 +140,16 @@
 <a class="reference internal" href="../init_tools/index.html#pyDeltaRCM.init_tools.init_tools.init_output_file" title="pyDeltaRCM.init_tools.init_tools.init_output_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_output_file</span></code></a>.</p>
 <p>Expected format for entries to the <cite>meta</cite> dictionary nested within the
 <cite>self._save_var_list</cite> dictionary:</p>
-<p><a href="#id2"><span class="problematic" id="id3">``</span></a>`
-self._save_var_list[‘meta’][‘new_meta_name’] = [‘varname’, ‘units’,</p>
-<blockquote>
-<div><p>‘type’, (dimensions)]</p>
-</div></blockquote>
-<p><a href="#id4"><span class="problematic" id="id5">``</span></a><a href="#id6"><span class="problematic" id="id7">`</span></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">_save_var_list</span><span class="p">[</span><span class="s1">&#39;meta&#39;</span><span class="p">][</span><span class="s1">&#39;new_meta_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;varname&#39;</span><span class="p">,</span> <span class="s1">&#39;units&#39;</span><span class="p">,</span>
+                                                <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">dimensions</span><span class="p">)]</span>  <span class="c1"># noqa: E501</span>
+</pre></div>
+</div>
 <p>Expected format for time varying grid entries as keys within the
 <cite>self._save_var_list</cite> dictionary:</p>
-<p><a href="#id8"><span class="problematic" id="id9">``</span></a>`
-self._save_var_list[‘new_grid_name’] = [‘varname’, ‘units’, ‘type’,</p>
-<blockquote>
-<div><p>(dimensions)]</p>
-</div></blockquote>
-<p><a href="#id10"><span class="problematic" id="id11">``</span></a><a href="#id12"><span class="problematic" id="id13">`</span></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">_save_var_list</span><span class="p">[</span><span class="s1">&#39;new_grid_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;varname&#39;</span><span class="p">,</span> <span class="s1">&#39;units&#39;</span><span class="p">,</span>
+                                        <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">dimensions</span><span class="p">)]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -310,7 +306,7 @@ self._save_var_list[‘new_grid_name’] = [‘varname’, ‘units’, ‘type�
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, The DeltaRCM Team.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.3.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
     </div>
   </body>
 </html>
