@@ -15,11 +15,14 @@ class ChangingVelocityModel(pyDeltaRCM.DeltaModel):
         self._time_array, self._velocity_array = create_velocity_array(
             end_time)  # use default shape parameters for the array
 
-    def hook_run_one_timestep(self):
+    def hook_solve_water_and_sediment_timestep(self):
         """Change the velocity."""
 
         # find the new velocity and set it to the model
         self.u0 = np.interp(self._time, self._time_array, self._velocity_array)
+
+        # update other boundary conditions using u0
+        self.create_boundary_conditions()
 
         # log the new value
         _msg = 'Changed velocity value to {u0}'.format(

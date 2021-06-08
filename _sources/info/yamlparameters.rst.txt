@@ -44,6 +44,8 @@ Model Domain Parameters
 
 :attr:`pyDeltaRCM.model.DeltaModel.h0`
 
+:attr:`pyDeltaRCM.model.DeltaModel.hb`
+
 :attr:`pyDeltaRCM.model.DeltaModel.H_SL`
 
 :attr:`pyDeltaRCM.model.DeltaModel.SLR`
@@ -109,6 +111,8 @@ Output Settings
 :attr:`pyDeltaRCM.model.DeltaModel.save_checkpoint`
 
 :attr:`pyDeltaRCM.model.DeltaModel.resume_checkpoint`
+
+:attr:`pyDeltaRCM.model.DeltaModel.clobber_netcdf`
 
 
 Reduced-Complexity Routing Parameters
