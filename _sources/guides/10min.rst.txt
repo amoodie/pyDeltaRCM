@@ -13,7 +13,7 @@ This simple guide will show you the absolute basics of getting a `pyDeltaRCM` mo
 A default model
 ---------------
 
-You can get a model running with five simple lines of code.
+You can get a model running with five simple lines of Python code. Note that you can run *pyDeltaRCM* in either a standalone script or part of an interactive session.
 First, we instantiate the main :obj:`~pyDeltaRCM.DeltaModel` model object.
 
 .. code:: python
@@ -31,11 +31,15 @@ So, we simply create a `for` loop, and call the `update` function, and then wrap
 .. code:: python
 
     >>> for _ in range(0, 5):
-    ...     delta.update()
+    ...     default_delta.update()
 
-    >>> delta.finalize()
+    >>> default_delta.finalize()
 
-That's it! You ran the pyDeltaRCM model for five timesteps, with just five lines of code. 
+.. note::
+
+    Additional calls to update the model can be called up until the model is finalized.
+
+That's it! You ran the pyDeltaRCM model for five timesteps, with just five lines of code.
 
 We can visualize the delta bed elevation, though it's not very exciting after only five timesteps...
 
@@ -44,7 +48,7 @@ We can visualize the delta bed elevation, though it's not very exciting after on
     >>> import matplotlib.pyplot as plt
 
     >>> fig, ax = plt.subplots()
-    >>> ax.imshow(delta.bed_elevation, vmax=-3)
+    >>> ax.imshow(default_delta.bed_elevation, vmax=-3)
     >>> plt.show()
 
 .. plot:: guides/10min_demo.py
@@ -54,13 +58,24 @@ The model with set parameters
 -----------------------------
 
 To run a simulation with a non-default set of parameters, we use a configuration file written in the YAML markup language named `10min_tutorial.yaml`.
-For example, we can specify where we would like the output file to be placed with the `out_dir` parameter, ensure that our simulation is easily reproducible by setting the random `seed` parameter, and examine what is the effect of a high fraction of bedload:
+The markup file allows us to specify model boundary conditions and input and output settings, where anything set in the file will override the :doc:`default parameters <../reference/model/yaml_defaults>` for the model, and anything *not* specified will take the default value.
+
+.. important::
+
+    The best practice for model configurations is to create a YAML file with only the settings you want to change specified.
+
+The YAML configuration file is central to managing *pyDeltaRCM* simulations, so we did not create this file for you; you will need to create the YAML file yourself.
+To create the YAML file, open up your favorite plain-text editing application (e.g., gedit, notepad).
+YAML syntax is pretty simple for basic configurations, essentially amounting to each line representing a parameter-value pair, separated by a colon.
+For this example, let's specify three simulation controls: where we want the output file to be placed via the `out_dir` parameter, we will ensure that our simulation is easily reproducible by setting the random `seed` parameter, and we can examine what is the effect of a high fraction of bedload with the `f_bedload` parameter.
+Enter the following in your text editor, and save the file as ``10min_tutorial.yaml``, making sure to place the file in a location accessible to your interpreter.
 
 .. code:: yaml
 
     out_dir: '10min_tutorial'
     seed: 451220118313
     f_bedload: 0.9
+
 
 Now, we can create a second instance of the :obj:`~pyDeltaRCM.model.DeltaModel()`, this time using the input yaml file.
 
