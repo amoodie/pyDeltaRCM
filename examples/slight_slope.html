@@ -1,28 +1,25 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Slightly sloping basin &#8212; pyDeltaRCM 2.1.4 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinxdoc.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <title>Slightly sloping basin &#8212; pyDeltaRCM 2.1.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxdoc.css?v=34905f61" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <script src="../_static/documentation_options.js?v=a7898dfc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Updating model boundary conditions" href="updating_boundary_conditions.html" />
     <link rel="prev" title="Resume model run from checkpoint" href="resume_from_checkpoint.html" /> 
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -34,7 +31,7 @@
         <li class="right" >
           <a href="resume_from_checkpoint.html" title="Resume model run from checkpoint"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">pyDeltaRCM 2.1.4 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pyDeltaRCM 2.1.9 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Examples of using and working with pyDeltaRCM</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Slightly sloping basin</a></li> 
       </ul>
@@ -46,18 +43,18 @@
           <div class="body" role="main">
             
   <section id="slightly-sloping-basin">
-<h1>Slightly sloping basin<a class="headerlink" href="#slightly-sloping-basin" title="Permalink to this heading">¶</a></h1>
+<h1>Slightly sloping basin<a class="headerlink" href="#slightly-sloping-basin" title="Link to this heading">¶</a></h1>
 <p>Consider the case where we are a researcher seeking to explore the effects of a receiving basin that is sloped perpendicular to the channel outlet.
 This researcher asks: does this sloped basin cause channels to steer towards the deeper water, where compensation is higher?</p>
 <p>The researcher can easily use subclassing and model hooks to achieve the desired effect.
 Recall that anything added to the end of the the subclass’ <cite>__init__</cite> method will be called during instantiation of the subclass.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SlightSlopeModel</span><span class="p">(</span><span class="n">pyDeltaRCM</span><span class="o">.</span><span class="n">DeltaModel</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;A subclass of DeltaModel with sloping basin.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">SlightSlopeModel</span><span class="p">(</span><span class="n">pyDeltaRCM</span><span class="o">.</span><span class="n">DeltaModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A subclass of DeltaModel with sloping basin.</span>
 
 <span class="sd">    This subclass simply modifies the basin geometry</span>
 <span class="sd">    before any computation has occurred.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
          <span class="c1"># inherit base DeltaModel methods</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -81,7 +78,7 @@ Recall that anything added to the end of the the subclass’ <cite>__init__</cit
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="../examples/slight_slope-3.png">png</a>, <a class="reference external" href="../examples/slight_slope-3.hires.png">hires.png</a>)</p>
+<p>(<a class="reference download internal" download="" href="../_downloads/36e2bfefb4a98310c0c9ae27907283da/slight_slope-3.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/2770dc64e41cf7112d4a1451916441d8/slight_slope-3.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>)</p>
 <figure class="align-default">
 <img alt="../_images/slight_slope-3.png" class="plot-directive" src="../_images/slight_slope-3.png" />
 </figure>
@@ -98,7 +95,7 @@ Are the channels steered by the basin slope?</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
   <div>
     <h4>Previous topic</h4>
@@ -117,7 +114,7 @@ Are the channels steered by the basin slope?</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -125,13 +122,13 @@ Are the channels steered by the basin slope?</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -143,14 +140,14 @@ Are the channels steered by the basin slope?</p>
         <li class="right" >
           <a href="resume_from_checkpoint.html" title="Resume model run from checkpoint"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">pyDeltaRCM 2.1.4 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pyDeltaRCM 2.1.9 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Examples of using and working with pyDeltaRCM</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Slightly sloping basin</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, The DeltaRCM Team.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.0.
+    &#169; Copyright 2020, The DeltaRCM Team.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>

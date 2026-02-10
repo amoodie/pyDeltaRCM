@@ -1,28 +1,26 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>shared_tools &#8212; pyDeltaRCM 2.1.4 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinxdoc.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <title>shared_tools &#8212; pyDeltaRCM 2.1.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxdoc.css?v=34905f61" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
     <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/documentation_options.js?v=a7898dfc"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="hook_tools" href="../hook_tools/index.html" />
     <link rel="prev" title="pyDeltaRCM.sed_tools.BaseRouter" href="../../_autosummary/pyDeltaRCM.sed_tools.BaseRouter.html" /> 
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -34,7 +32,7 @@
         <li class="right" >
           <a href="../../_autosummary/pyDeltaRCM.sed_tools.BaseRouter.html" title="pyDeltaRCM.sed_tools.BaseRouter"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">pyDeltaRCM 2.1.4 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pyDeltaRCM 2.1.9 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">API reference</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">shared_tools</a></li> 
       </ul>
@@ -46,18 +44,18 @@
           <div class="body" role="main">
             
   <section id="shared-tools">
-<h1>shared_tools<a class="headerlink" href="#shared-tools" title="Permalink to this heading">¶</a></h1>
+<h1>shared_tools<a class="headerlink" href="#shared-tools" title="Link to this heading">¶</a></h1>
 <div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
 <p>add paragraph description of the module</p>
 </div>
 <p>The tools are defined in <code class="docutils literal notranslate"><span class="pre">pyDeltaRCM.shared_tools</span></code>.</p>
 <section id="shared-functions">
-<h2>Shared functions<a class="headerlink" href="#shared-functions" title="Permalink to this heading">¶</a></h2>
+<h2>Shared functions<a class="headerlink" href="#shared-functions" title="Link to this heading">¶</a></h2>
 <p>This module defines several functions that are used throughout the model, and so are organized here for convenience.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyDeltaRCM.shared_tools.get_random_uniform">
-<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">get_random_uniform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.get_random_uniform" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">get_random_uniform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.get_random_uniform" title="Link to this definition">¶</a></dt>
 <dd><p>Get a random number from the uniform distribution.</p>
 <p>Get a random number from the uniform distribution, defined over the
 interval <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">limit]</span></code>, where <cite>limit</cite> is an input parameter (usually
@@ -79,7 +77,7 @@ loop to get many random numbers.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_random_uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_random_uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">0.5488135039273248</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">get_random_uniform</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
@@ -90,7 +88,7 @@ loop to get many random numbers.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyDeltaRCM.shared_tools.get_inlet_weights">
-<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">get_inlet_weights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inlet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyDeltaRCM.shared_tools.get_inlet_weights" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">get_inlet_weights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inlet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyDeltaRCM.shared_tools.get_inlet_weights" title="Link to this definition">¶</a></dt>
 <dd><p>Get weight for inlet parcels.</p>
 <p>This method is called at the top of water and sediment routing steps by
 default, as implemented in the methods
@@ -111,7 +109,7 @@ into the domain based on the weights determined by this function.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyDeltaRCM.shared_tools.get_start_indices">
-<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">get_start_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inlet</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_starts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.get_start_indices" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">get_start_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inlet</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_starts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.get_start_indices" title="Link to this definition">¶</a></dt>
 <dd><p>Get start indices.</p>
 <p>Reutrn a randomly generated list of starting points for parcel routing.
 These starting points are selected from the <cite>inlet</cite> array.</p>
@@ -140,7 +138,7 @@ dimensions.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyDeltaRCM.shared_tools.get_steps">
-<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">get_steps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iwalk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jwalk</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.get_steps" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">get_steps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iwalk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jwalk</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.get_steps" title="Link to this definition">¶</a></dt>
 <dd><p>Find the values given the next step.</p>
 <p>Get the steps for updating discharge and velocity arrays based on the
 direction of each step.</p>
@@ -148,7 +146,7 @@ direction of each step.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyDeltaRCM.shared_tools.random_pick">
-<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">random_pick</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prob</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyDeltaRCM.shared_tools.random_pick" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">random_pick</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prob</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyDeltaRCM.shared_tools.random_pick" title="Link to this definition">¶</a></dt>
 <dd><p>Pick number from weighted array.</p>
 <p>Randomly pick a number weighted by array probabilities (len 9)
 Return the index of the selected weight in array probs
@@ -163,7 +161,7 @@ around the cell flattened to 1D.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyDeltaRCM.shared_tools.custom_unravel">
-<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">custom_unravel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.custom_unravel" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">custom_unravel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.custom_unravel" title="Link to this definition">¶</a></dt>
 <dd><p>Unravel indexes for 2D array.</p>
 <p>This is a jitted function, equivalent to the <cite>numpy</cite> implementation of
 <cite>unravel_index</cite>, but configured to accept only a single integer as
@@ -185,20 +183,11 @@ two-dimensional array from which <code class="xref py py-obj docutils literal no
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>  <span class="c1"># e.g., delta.eta.shape</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">unravel_index</span><span class="p">(</span><span class="mi">5124</span><span class="p">,</span> <span class="n">_shape</span><span class="p">)</span>
-<span class="go">(25, 124)</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">custom_unravel</span><span class="p">(</span><span class="mi">5124</span><span class="p">,</span> <span class="n">_shape</span><span class="p">)</span>
-<span class="go">(25, 124)</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyDeltaRCM.shared_tools.custom_ravel">
-<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">custom_ravel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tup</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.custom_ravel" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">custom_ravel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tup</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.custom_ravel" title="Link to this definition">¶</a></dt>
 <dd><p>Ravel indexes for 2D array.</p>
 <p>This is a jitted function, equivalent to the <cite>numpy</cite> implementation of
 <cite>ravel_multi_index</cite>, but configured to accept only a single tuple as
@@ -220,20 +209,11 @@ two-dimensional array from which <code class="xref py py-obj docutils literal no
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>  <span class="c1"># e.g., delta.eta.shape</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">ravel_multi_index</span><span class="p">((</span><span class="mi">25</span><span class="p">,</span> <span class="mi">124</span><span class="p">),</span> <span class="n">_shape</span><span class="p">)</span>
-<span class="go">5124</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">custom_ravel</span><span class="p">((</span><span class="mi">25</span><span class="p">,</span> <span class="mi">124</span><span class="p">),</span> <span class="n">_shape</span><span class="p">)</span>
-<span class="go">5124</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyDeltaRCM.shared_tools.custom_pad">
-<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">custom_pad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.custom_pad" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">custom_pad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.custom_pad" title="Link to this definition">¶</a></dt>
 <dd><p>Pad an array.</p>
 <p>This is a jitted function, equivalent to the <cite>numpy</cite> implementation of
 <cite>pad</cite> with certain optional parameters:</p>
@@ -256,31 +236,13 @@ guarantees that all cells will have 9 neighbors.</p>
 </dl>
 <p class="rubric">Examples</p>
 <p>Consider a model domain of size <cite>(4, 8)</cite></p>
-<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np_pad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;edge&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cust_pad</span> <span class="o">=</span> <span class="n">custom_pad</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np_pad</span> <span class="o">==</span> <span class="n">cust_pad</span><span class="p">)</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cust_pad</span><span class="o">.</span><span class="n">shape</span>
-<span class="go">(6, 10)</span>
-</pre></div>
-</div>
 <p>which enables all elements of the original <cite>(4, 8)</cite> array to be safely
 sliced:</p>
-<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
-<span class="gp">... </span>        <span class="n">slc</span> <span class="o">=</span> <span class="n">cust_pad</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">slc</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># will always be a (3, 3) 9-cell neighborhood</span>
-<span class="go">(3, 3)</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyDeltaRCM.shared_tools.get_weight_sfc_int">
-<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">get_weight_sfc_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage_nbrs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ivec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jvec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distances</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyDeltaRCM.shared_tools.get_weight_sfc_int" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">get_weight_sfc_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage_nbrs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ivec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jvec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distances</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyDeltaRCM.shared_tools.get_weight_sfc_int" title="Link to this definition">¶</a></dt>
 <dd><p>Determine random walk weight surfaces.</p>
 <p>Determines the surfaces for weighting the random walks based on the stage
 and discharge fields.</p>
@@ -293,7 +255,7 @@ Link to Hydrodyanmics doc?</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyDeltaRCM.shared_tools.custom_yaml_loader">
-<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">custom_yaml_loader</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyDeltaRCM.shared_tools.custom_yaml_loader" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">custom_yaml_loader</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><span class="pre">SafeLoader</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.custom_yaml_loader" title="Link to this definition">¶</a></dt>
 <dd><p>A custom YAML loader to handle scientific notation.</p>
 <dl class="simple">
 <dt>We are waiting for upstream fix here:</dt><dd><p><a class="reference external" href="https://github.com/yaml/pyyaml/pull/174">https://github.com/yaml/pyyaml/pull/174</a></p>
@@ -319,12 +281,12 @@ Link to Hydrodyanmics doc?</p>
 
 </section>
 <section id="time-scaling-functions">
-<h2>Time scaling functions<a class="headerlink" href="#time-scaling-functions" title="Permalink to this heading">¶</a></h2>
+<h2>Time scaling functions<a class="headerlink" href="#time-scaling-functions" title="Link to this heading">¶</a></h2>
 <p>Scaling of real-world time and model time is an important topic covered in detail in <a class="reference internal" href="../../info/modeltime.html"><span class="doc">Time in pyDeltaRCM</span></a>.
 Several functions are defined here which can help with scaling between model and real-world time.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyDeltaRCM.shared_tools.scale_model_time">
-<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">scale_model_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">If</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'seconds'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.scale_model_time" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">scale_model_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">If</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'seconds'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.scale_model_time" title="Link to this definition">¶</a></dt>
 <dd><p>Scale the model time to “real” time.</p>
 <p>Model time is executed as assumed flooding conditions, and executed at the
 per-second level, with a multi-second timestep. This model design
@@ -337,11 +299,11 @@ assumption in configuring the model.</p>
 <p>Using this assumption, it is possible to scale up model time to “real”
 time, by assuming an <em>intermittency factor</em>. This intermittency factor is
 the fraction of unit-time that a river is assumed to be flooding.</p>
-<div class="math">
-<p><img src="../../_images/math/2d75bb2427bb5da598e66bd3bd6ccdc8561d6d86.png" alt="t_r = \dfrac{t}{I_f \cdot S_f}"/></p>
-</div><p>where <img class="math" src="../../_images/math/907a4add6d5db5b7f197f7924f1371b8ac404fe6.png" alt="t"/> is the model time (<code class="xref py py-obj docutils literal notranslate"><span class="pre">time</span></code>),
-<img class="math" src="../../_images/math/ffcb6a2060a20a029a67b98d3c88ea7c8cf4a20f.png" alt="t_r"/> is the “real” scaled time, <img class="math" src="../../_images/math/8ee585ce9480abcfdcc2aa9bf73f3ace0b23028f.png" alt="I_f"/> is the
-intermittency factor, and <img class="math" src="../../_images/math/c7fb815fe84c8475fc0a74414e2f871fc00a1092.png" alt="S_f"/> is the scale factor to convert base
+<div class="math notranslate nohighlight">
+\[t_r = \dfrac{t}{I_f \cdot S_f}\]</div>
+<p>where <span class="math notranslate nohighlight">\(t\)</span> is the model time (<code class="xref py py-obj docutils literal notranslate"><span class="pre">time</span></code>),
+<span class="math notranslate nohighlight">\(t_r\)</span> is the “real” scaled time, <span class="math notranslate nohighlight">\(I_f\)</span> is the
+intermittency factor, and <span class="math notranslate nohighlight">\(S_f\)</span> is the scale factor to convert base
 units of seconds to units specified as an input argument. Note that this
 function uses <a class="reference internal" href="#pyDeltaRCM.shared_tools._scale_factor" title="pyDeltaRCM.shared_tools._scale_factor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_scale_factor</span></code></a> internally for this conversion.</p>
 <dl class="field-list simple">
@@ -371,7 +333,7 @@ scaled time in seconds (<cite>seconds</cite>), but optionally supply argument
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyDeltaRCM.shared_tools._scale_factor">
-<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">_scale_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">If</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools._scale_factor" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">_scale_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">If</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools._scale_factor" title="Link to this definition">¶</a></dt>
 <dd><p>Scaling factor between model time and “real” time.</p>
 <p>The scaling factor relates the model time to a real worl time, by the
 assumed intermittency factor and the user-specified units for output.</p>
@@ -389,11 +351,11 @@ activity. <strong>Must</strong> be in interval (0, 1].</p></li>
 
 </section>
 <section id="utilities">
-<h2>Utilities<a class="headerlink" href="#utilities" title="Permalink to this heading">¶</a></h2>
+<h2>Utilities<a class="headerlink" href="#utilities" title="Link to this heading">¶</a></h2>
 <p>Additionally, functions defined in <code class="docutils literal notranslate"><span class="pre">pyDeltaRCM.shared_tools</span></code> manage the random state of the model, and help with documentation and version management.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyDeltaRCM.shared_tools.set_random_seed">
-<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">set_random_seed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.set_random_seed" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">set_random_seed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.set_random_seed" title="Link to this definition">¶</a></dt>
 <dd><p>Set the random seed from an integer.</p>
 <p>Set the seed of the random number generator with a single integer.
 Importantly, this function will affect the state of the <cite>numba</cite> random
@@ -426,7 +388,7 @@ interval <code class="docutils literal notranslate"><span class="pre">[0,</span>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyDeltaRCM.shared_tools.get_random_state">
-<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">get_random_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyDeltaRCM.shared_tools.get_random_state" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">get_random_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyDeltaRCM.shared_tools.get_random_state" title="Link to this definition">¶</a></dt>
 <dd><p>Get the random state as a tuple.</p>
 <p>Get the random state from a tuple in the form returned by
 <code class="xref py py-func docutils literal notranslate"><span class="pre">numba._helperlib.rnd_get_state()</span></code>. This tuple contains the
@@ -452,7 +414,7 @@ cannot be peproduced.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyDeltaRCM.shared_tools.set_random_state">
-<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">set_random_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_state_tuple</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.set_random_state" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">set_random_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_state_tuple</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools.set_random_state" title="Link to this definition">¶</a></dt>
 <dd><p>Set the random state from a tuple.</p>
 <p>Set the random state from a tuple in the form returned by
 <code class="xref py py-func docutils literal notranslate"><span class="pre">numba._helperlib.rnd_get_state()</span></code>.</p>
@@ -473,13 +435,13 @@ cannot be peproduced.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyDeltaRCM.shared_tools._docs_temp_directory">
-<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">_docs_temp_directory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyDeltaRCM.shared_tools._docs_temp_directory" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">_docs_temp_directory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools._docs_temp_directory" title="Link to this definition">¶</a></dt>
 <dd><p>Helper for creating and tearing down models in documentation.</p>
 <p>This function should be used as a context manager, to create a DeltaModel
 with a temporary folder as output, rather than anywhere in the project
 structure.</p>
 <p class="rubric">Examples</p>
-<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">_docs_temp_directory</span><span class="p">()</span> <span class="k">as</span> <span class="n">output_dir</span><span class="p">:</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">_docs_temp_directory</span><span class="p">()</span> <span class="k">as</span> <span class="n">output_dir</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="n">delta</span> <span class="o">=</span> <span class="n">pyDeltaRCM</span><span class="o">.</span><span class="n">DeltaModel</span><span class="p">(</span><span class="n">out_dir</span><span class="o">=</span><span class="n">output_dir</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -487,7 +449,7 @@ structure.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyDeltaRCM.shared_tools._get_version">
-<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">_get_version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools._get_version" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyDeltaRCM.shared_tools.</span></span><span class="sig-name descname"><span class="pre">_get_version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pyDeltaRCM.shared_tools._get_version" title="Link to this definition">¶</a></dt>
 <dd><p>Extract version from file.</p>
 <p>Extract version number from single file, and make it availabe everywhere.
 This function is used to make sure that when the version number is
@@ -506,7 +468,7 @@ throughout documentation and version-controlled release.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pyDeltaRCM</span><span class="o">.</span><span class="n">shared_tools</span><span class="o">.</span><span class="n">_get_version</span><span class="p">()</span>  
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pyDeltaRCM</span><span class="o">.</span><span class="n">shared_tools</span><span class="o">.</span><span class="n">_get_version</span><span class="p">()</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -519,15 +481,38 @@ throughout documentation and version-controlled release.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">shared_tools</a><ul>
-<li><a class="reference internal" href="#shared-functions">Shared functions</a></li>
-<li><a class="reference internal" href="#time-scaling-functions">Time scaling functions</a></li>
-<li><a class="reference internal" href="#utilities">Utilities</a></li>
+<li><a class="reference internal" href="#shared-functions">Shared functions</a><ul>
+<li><a class="reference internal" href="#pyDeltaRCM.shared_tools.get_random_uniform"><code class="docutils literal notranslate"><span class="pre">get_random_uniform()</span></code></a></li>
+<li><a class="reference internal" href="#pyDeltaRCM.shared_tools.get_inlet_weights"><code class="docutils literal notranslate"><span class="pre">get_inlet_weights()</span></code></a></li>
+<li><a class="reference internal" href="#pyDeltaRCM.shared_tools.get_start_indices"><code class="docutils literal notranslate"><span class="pre">get_start_indices()</span></code></a></li>
+<li><a class="reference internal" href="#pyDeltaRCM.shared_tools.get_steps"><code class="docutils literal notranslate"><span class="pre">get_steps()</span></code></a></li>
+<li><a class="reference internal" href="#pyDeltaRCM.shared_tools.random_pick"><code class="docutils literal notranslate"><span class="pre">random_pick()</span></code></a></li>
+<li><a class="reference internal" href="#pyDeltaRCM.shared_tools.custom_unravel"><code class="docutils literal notranslate"><span class="pre">custom_unravel()</span></code></a></li>
+<li><a class="reference internal" href="#pyDeltaRCM.shared_tools.custom_ravel"><code class="docutils literal notranslate"><span class="pre">custom_ravel()</span></code></a></li>
+<li><a class="reference internal" href="#pyDeltaRCM.shared_tools.custom_pad"><code class="docutils literal notranslate"><span class="pre">custom_pad()</span></code></a></li>
+<li><a class="reference internal" href="#pyDeltaRCM.shared_tools.get_weight_sfc_int"><code class="docutils literal notranslate"><span class="pre">get_weight_sfc_int()</span></code></a></li>
+<li><a class="reference internal" href="#pyDeltaRCM.shared_tools.custom_yaml_loader"><code class="docutils literal notranslate"><span class="pre">custom_yaml_loader()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#time-scaling-functions">Time scaling functions</a><ul>
+<li><a class="reference internal" href="#pyDeltaRCM.shared_tools.scale_model_time"><code class="docutils literal notranslate"><span class="pre">scale_model_time()</span></code></a></li>
+<li><a class="reference internal" href="#pyDeltaRCM.shared_tools._scale_factor"><code class="docutils literal notranslate"><span class="pre">_scale_factor()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#utilities">Utilities</a><ul>
+<li><a class="reference internal" href="#pyDeltaRCM.shared_tools.set_random_seed"><code class="docutils literal notranslate"><span class="pre">set_random_seed()</span></code></a></li>
+<li><a class="reference internal" href="#pyDeltaRCM.shared_tools.get_random_state"><code class="docutils literal notranslate"><span class="pre">get_random_state()</span></code></a></li>
+<li><a class="reference internal" href="#pyDeltaRCM.shared_tools.set_random_state"><code class="docutils literal notranslate"><span class="pre">set_random_state()</span></code></a></li>
+<li><a class="reference internal" href="#pyDeltaRCM.shared_tools._docs_temp_directory"><code class="docutils literal notranslate"><span class="pre">_docs_temp_directory()</span></code></a></li>
+<li><a class="reference internal" href="#pyDeltaRCM.shared_tools._get_version"><code class="docutils literal notranslate"><span class="pre">_get_version()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -550,7 +535,7 @@ throughout documentation and version-controlled release.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -558,13 +543,13 @@ throughout documentation and version-controlled release.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -576,14 +561,14 @@ throughout documentation and version-controlled release.</p>
         <li class="right" >
           <a href="../../_autosummary/pyDeltaRCM.sed_tools.BaseRouter.html" title="pyDeltaRCM.sed_tools.BaseRouter"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">pyDeltaRCM 2.1.4 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pyDeltaRCM 2.1.9 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" >API reference</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">shared_tools</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, The DeltaRCM Team.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.0.
+    &#169; Copyright 2020, The DeltaRCM Team.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>

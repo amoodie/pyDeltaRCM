@@ -1,28 +1,25 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Installing &#8212; pyDeltaRCM 2.1.4 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinxdoc.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <title>Installing &#8212; pyDeltaRCM 2.1.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxdoc.css?v=34905f61" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <script src="../_static/documentation_options.js?v=a7898dfc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Contributing" href="contributing.html" />
     <link rel="prev" title="Welcome to the PyDeltaRCM documentation" href="../index.html" /> 
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -34,7 +31,7 @@
         <li class="right" >
           <a href="../index.html" title="Welcome to the PyDeltaRCM documentation"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">pyDeltaRCM 2.1.4 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pyDeltaRCM 2.1.9 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Installing</a></li> 
       </ul>
     </div>  
@@ -45,29 +42,29 @@
           <div class="body" role="main">
             
   <section id="installing">
-<h1>Installing<a class="headerlink" href="#installing" title="Permalink to this heading">¶</a></h1>
+<h1>Installing<a class="headerlink" href="#installing" title="Link to this heading">¶</a></h1>
 <p>We recommend installing <em>pyDeltaRCM</em> in a virtual environment.
 That said, <em>pyDeltaRCM</em> depends on a small number of packages (<a class="reference internal" href="#dependencies-list"><span class="std std-ref">list of dependencies</span></a>), many of which are likely already in a Python user/developer’s regular use, so it’s probably safe to install <em>pyDeltaRCM</em> in your base environment, too.</p>
 <section id="id1">
-<h2>Installing<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<h2>Installing<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <p>We describe installation flavors for both users and developers below.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>If you are looking to make any modifications to the model source code, you should follow the developer instructions.</p>
 </div>
-<p>We suggest using the Anaconda Python distribution, which you can obtain via <a class="reference external" href="https://www.anaconda.com/products/individual">the project website</a>.</p>
+<p>We suggest using the Anaconda Python distribution, which you can obtain via <a class="reference external" href="https://www.anaconda.com/download">the project website</a>.</p>
 <p>Before proceeding, you may wish to create a virtual environment for the <em>pyDeltaRCM</em> project.
 With Anaconda on Linux:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda create -n deltarcm <span class="nv">python</span><span class="o">=</span><span class="m">3</span>
-<span class="gp">$ </span>conda activate deltarcm
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>deltarcm<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>
+<span class="gp">$ </span>conda<span class="w"> </span>activate<span class="w"> </span>deltarcm
 </pre></div>
 </div>
 <p>For more informtaion, see <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment">this guide</a> for help on creating and activating a virtual environment with Anaconda on other platforms.
-See <a class="reference external" href="https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment">this helpful guide</a> for creating virtual environments with <cite>venv</cite> if you do not use Anaconda.</p>
+See <a class="reference external" href="https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/">this helpful guide</a> for creating virtual environments with <cite>venv</cite> if you do not use Anaconda.</p>
 <section id="user-installation">
-<h3>User installation<a class="headerlink" href="#user-installation" title="Permalink to this heading">¶</a></h3>
+<h3>User installation<a class="headerlink" href="#user-installation" title="Link to this heading">¶</a></h3>
 <p>For a user installation, simply install from the pypi package repository:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install pyDeltaRCM
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>pyDeltaRCM
 </pre></div>
 </div>
 <div class="admonition note">
@@ -76,51 +73,51 @@ See <a class="reference external" href="https://packaging.python.org/guides/inst
 </div>
 </section>
 <section id="developer-installation">
-<span id="dev-install"></span><h3>Developer installation<a class="headerlink" href="#developer-installation" title="Permalink to this heading">¶</a></h3>
+<span id="dev-install"></span><h3>Developer installation<a class="headerlink" href="#developer-installation" title="Link to this heading">¶</a></h3>
 <p>For a developer installation, you should first fork the repository on Github.
 This will allow you to submit suggestions and contribute to <em>pyDeltaRCM</em>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You do not <em>need</em> to create a fork if your are just testing, but it may save you time and headache down the road. If you choose not to, just use the main repository url below (<a class="reference external" href="https://github.com/DeltaRCM/pyDeltaRCM.git">https://github.com/DeltaRCM/pyDeltaRCM.git</a>).</p>
+<p>You do not <em>need</em> to create a fork if your are just testing, but it may save you time and headache down the road. If you choose not to, just use the main repository url below (<a class="reference external" href="https://github.com/DeltaRCM/pyDeltaRCM">https://github.com/DeltaRCM/pyDeltaRCM</a>).</p>
 </div>
 <p>First, you will need to <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">install git</a>  if you do not already have it.
 Then, download or clone your fork of the project:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone https://github.com/&lt;your-username&gt;/pyDeltaRCM.git
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;your-username&gt;/pyDeltaRCM.git
 </pre></div>
 </div>
 <p>Then, with current working directory as the root of the repository (e.g., <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">pyDeltaRCM</span></code>), run the following commands:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install -r requirements.txt
-<span class="gp">$ </span>pip install -r requirements-docs.txt
-<span class="gp">$ </span>pip install -r requirements-test.txt
-<span class="gp">$ </span>pip install -e .
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-docs.txt
+<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-test.txt
+<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </pre></div>
 </div>
 <p>To check installation, run the complete test suite with:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pytest --mpl --mpl-baseline-path<span class="o">=</span>tests/imgs_baseline
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pytest<span class="w"> </span>--mpl<span class="w"> </span>--mpl-baseline-path<span class="o">=</span>tests/imgs_baseline
 </pre></div>
 </div>
 <p>Finally, add the <cite>upstream</cite> repository to your <cite>remote</cite> repository list:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git remote add upstream https://github.com/DeltaRCM/pyDeltaRCM.git
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/DeltaRCM/pyDeltaRCM.git
 </pre></div>
 </div>
 <p>You can build a local copy of the documentation with:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="o">(</span><span class="nb">cd</span> docs <span class="o">&amp;&amp;</span> make html<span class="o">)</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="o">(</span><span class="nb">cd</span><span class="w"> </span>docs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>html<span class="o">)</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="next-steps">
-<h2>Next steps<a class="headerlink" href="#next-steps" title="Permalink to this heading">¶</a></h2>
+<h2>Next steps<a class="headerlink" href="#next-steps" title="Link to this heading">¶</a></h2>
 <p>Consider reading through the <a class="reference internal" href="../guides/10min.html"><span class="doc">10-minute tutorial</span></a> or the <a class="reference internal" href="../guides/user_guide.html"><span class="doc">User Guide</span></a> to help get you started using <em>pyDeltaRCM</em>.</p>
 </section>
 <section id="dependencies">
-<span id="dependencies-list"></span><h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">numpy</span>
-<span class="linenos">2</span><span class="n">matplotlib</span>
-<span class="linenos">3</span><span class="n">scipy</span><span class="o">&gt;=</span><span class="mf">1.5</span>
-<span class="linenos">4</span><span class="n">netCDF4</span>
-<span class="linenos">5</span><span class="n">pyyaml</span><span class="o">&gt;=</span><span class="mf">5.1</span>
-<span class="linenos">6</span><span class="n">numba</span>
+<span id="dependencies-list"></span><h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">matplotlib</span><span class="o">&gt;=</span><span class="mf">3.6.1</span>
+<span class="linenos">2</span><span class="n">scipy</span><span class="o">&gt;=</span><span class="mf">1.5</span>
+<span class="linenos">3</span><span class="n">netCDF4</span>
+<span class="linenos">4</span><span class="n">pyyaml</span><span class="o">&gt;=</span><span class="mf">5.1</span>
+<span class="linenos">5</span><span class="n">numba</span>
+<span class="linenos">6</span><span class="n">numpy</span>
 </pre></div>
 </div>
 </section>
@@ -131,7 +128,7 @@ Then, download or clone your fork of the project:</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
   <div>
     <h3><a href="../index.html">Table of Contents</a></h3>
@@ -166,7 +163,7 @@ Then, download or clone your fork of the project:</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -174,13 +171,13 @@ Then, download or clone your fork of the project:</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -192,13 +189,13 @@ Then, download or clone your fork of the project:</p>
         <li class="right" >
           <a href="../index.html" title="Welcome to the PyDeltaRCM documentation"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">pyDeltaRCM 2.1.4 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pyDeltaRCM 2.1.9 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Installing</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, The DeltaRCM Team.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.0.
+    &#169; Copyright 2020, The DeltaRCM Team.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>

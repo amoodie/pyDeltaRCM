@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Customized Applications of pyDeltaRCM &#8212; pyDeltaRCM 2.1.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxdoc.css?v=34905f61" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <script src="../_static/documentation_options.js?v=a7898dfc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Developer Guide" href="../guides/developer_guide.html" />
+    <link rel="prev" title="Using custom classes with the Preprocessor" href="custom_class_preprocessor.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../guides/developer_guide.html" title="Developer Guide"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="custom_class_preprocessor.html" title="Using custom classes with the Preprocessor"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pyDeltaRCM 2.1.9 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Customized Applications of <em>pyDeltaRCM</em></a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="customized-applications-of-pydeltarcm">
+<h1>Customized Applications of <em>pyDeltaRCM</em><a class="headerlink" href="#customized-applications-of-pydeltarcm" title="Link to this heading">¶</a></h1>
+<p>Below is a “model zoo” containing a list with links to customized subclasses
+of the <em>pyDeltaRCM</em> found “in the wild”. If you have a implemented a custom
+subclass of the model and would like us to highlight it here please reach out
+or open a pull request!</p>
+<section id="vegetationmodel">
+<h2>VegetationModel<a class="headerlink" href="#vegetationmodel" title="Link to this heading">¶</a></h2>
+<p>This implementation of the <em>pyDeltaRCM</em> model is based off of the “DeltaRCM
+Vegetation” model presented in <a class="reference external" href="https://doi.org/10.1029/2018GL079405">Lauzon and Murray (2018)</a>.</p>
+<p>Link: <a class="reference external" href="https://github.com/amoodie/Vegetation_pyDeltaRCM">VegetationModel</a></p>
+</section>
+<section id="faulting-models">
+<h2>Faulting Models<a class="headerlink" href="#faulting-models" title="Link to this heading">¶</a></h2>
+<p>This implementation of the <em>pyDeltaRCM</em> model is used in the paper
+<a class="reference external" href="https://doi.org/10.1029/2021GL095053">Moodie and Passalacqua (2021)</a> to
+simulate a deltas with faulting scaled to the Mississippi River delta and the Selenga River delta.</p>
+<p>Link: <a class="reference external" href="https://github.com/amoodie/paper_resources/blob/main/Moodie_faultingsubsidence/model/scripts/mississippi_faults.py">MississippiFaultsModel</a></p>
+<p>Link: <a class="reference external" href="https://github.com/amoodie/paper_resources/blob/main/Moodie_faultingsubsidence/model/scripts/selenga_faults.py">SelengaModel</a></p>
+</section>
+<section id="variableslrmodel">
+<h2>VariableSLRModel<a class="headerlink" href="#variableslrmodel" title="Link to this heading">¶</a></h2>
+<p>This implementation of the <em>pyDeltaRCM</em> model is used in the paper
+<a class="reference external" href="https://doi.org/10.1029/2022JF006762">Hariharan et al (2022)</a> to simulate
+variable sea level rise scenarios.</p>
+<p>Link: <a class="reference external" href="https://github.com/elbeejay/variableSLR_pyDeltaRCM">VariableSLRModel</a></p>
+</section>
+<section id="crateringmodel">
+<h2>CrateringModel<a class="headerlink" href="#crateringmodel" title="Link to this heading">¶</a></h2>
+<p>This implementation of the <em>pyDeltaRCM</em> model is used in the paper
+<a class="reference external" href="https://doi.org/10.1029/2023JE008183">Moodie and Goudge (2025)</a> to simulate
+interaction of fluvial-deltaic processes and crater formation/preservation.</p>
+<p>Link: <a class="reference external" href="https://github.com/amoodie/paper_resources/blob/main/Moodie_marscraterreworking/model/CraterModel.py">CraterModel</a></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Customized Applications of <em>pyDeltaRCM</em></a><ul>
+<li><a class="reference internal" href="#vegetationmodel">VegetationModel</a></li>
+<li><a class="reference internal" href="#faulting-models">Faulting Models</a></li>
+<li><a class="reference internal" href="#variableslrmodel">VariableSLRModel</a></li>
+<li><a class="reference internal" href="#crateringmodel">CrateringModel</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="custom_class_preprocessor.html"
+                          title="previous chapter">Using custom classes with the Preprocessor</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../guides/developer_guide.html"
+                          title="next chapter">Developer Guide</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/examples/modelzoo.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../guides/developer_guide.html" title="Developer Guide"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="custom_class_preprocessor.html" title="Using custom classes with the Preprocessor"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pyDeltaRCM 2.1.9 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Customized Applications of <em>pyDeltaRCM</em></a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2020, The DeltaRCM Team.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    </div>
+  </body>
+</html>

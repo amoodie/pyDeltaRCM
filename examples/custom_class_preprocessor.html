@@ -1,40 +1,37 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Using custom classes with the Preprocessor &#8212; pyDeltaRCM 2.1.4 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinxdoc.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <title>Using custom classes with the Preprocessor &#8212; pyDeltaRCM 2.1.9 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxdoc.css?v=34905f61" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <script src="../_static/documentation_options.js?v=a7898dfc"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Developer Guide" href="../guides/developer_guide.html" />
+    <link rel="next" title="Customized Applications of pyDeltaRCM" href="modelzoo.html" />
     <link rel="prev" title="Saving custom fields to the output file" href="custom_saving.html" /> 
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../guides/developer_guide.html" title="Developer Guide"
+          <a href="modelzoo.html" title="Customized Applications of pyDeltaRCM"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="custom_saving.html" title="Saving custom fields to the output file"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">pyDeltaRCM 2.1.4 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pyDeltaRCM 2.1.9 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Examples of using and working with pyDeltaRCM</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Using custom classes with the Preprocessor</a></li> 
       </ul>
@@ -46,25 +43,25 @@
           <div class="body" role="main">
             
   <section id="using-custom-classes-with-the-preprocessor">
-<h1>Using custom classes with the Preprocessor<a class="headerlink" href="#using-custom-classes-with-the-preprocessor" title="Permalink to this heading">¶</a></h1>
+<h1>Using custom classes with the Preprocessor<a class="headerlink" href="#using-custom-classes-with-the-preprocessor" title="Link to this heading">¶</a></h1>
 <p>Here, we set up three jobs to run as an ensemble of a single custom class.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyDeltaRCM</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pyDeltaRCM</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">CustomRandomModel</span><span class="p">(</span><span class="n">pyDeltaRCM</span><span class="o">.</span><span class="n">DeltaModel</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="sd">&quot;&quot;&quot;</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">CustomRandomModel</span><span class="p">(</span><span class="n">pyDeltaRCM</span><span class="o">.</span><span class="n">DeltaModel</span><span class="p">):</span>
+<span class="gp">... </span><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="gp">... </span><span class="sd">    A subclass of DeltaModel that runs fast for this example.</span>
-<span class="gp">...</span><span class="sd"></span>
+<span class="gp">...</span>
 <span class="gp">... </span><span class="sd">    Just for the sake of this example, we are implementing a</span>
 <span class="gp">... </span><span class="sd">    custom class that runs very quickly. We override the</span>
 <span class="gp">... </span><span class="sd">    `solve_water_and_sediment_timestep` method of the model to</span>
 <span class="gp">... </span><span class="sd">    simply add random gaussian blobs to the surface on each step.</span>
 <span class="gp">... </span><span class="sd">    &quot;&quot;&quot;</span>
-<span class="gp">... </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="gp">...</span>
 <span class="gp">... </span>        <span class="c1"># inherit base DeltaModel methods</span>
 <span class="gp">... </span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -77,9 +74,9 @@
 <span class="gp">... </span>            <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_half_ns</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_half_ns</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">noise_patch</span><span class="p">),</span>
 <span class="gp">... </span>            <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_half_ns</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_half_ns</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">noise_patch</span><span class="p">))</span>
 <span class="gp">...</span>
-<span class="gp">... </span>    <span class="k">def</span> <span class="nf">solve_water_and_sediment_timestep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="gp">... </span>        <span class="sd">&quot;&quot;&quot;Overwrite method for documentation demonstration.</span>
-<span class="gp">...</span><span class="sd"></span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">solve_water_and_sediment_timestep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Overwrite method for documentation demonstration.</span>
+<span class="gp">...</span>
 <span class="gp">... </span><span class="sd">        This method now simply adds random gaussian noise on each step.</span>
 <span class="gp">... </span><span class="sd">        &quot;&quot;&quot;</span>
 <span class="gp">... </span>        <span class="c1"># get a random x and y value</span>
@@ -123,7 +120,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="../examples/custom_class_preprocessor-3.png">png</a>, <a class="reference external" href="../examples/custom_class_preprocessor-3.hires.png">hires.png</a>)</p>
+<p>(<a class="reference download internal" download="" href="../_downloads/24a762a379b249e3d5dcf716dc228994/custom_class_preprocessor-3.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/c6b907a9135ab7b03a086ebc765b4bc4/custom_class_preprocessor-3.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>)</p>
 <figure class="align-default">
 <img alt="../_images/custom_class_preprocessor-3.png" class="plot-directive" src="../_images/custom_class_preprocessor-3.png" />
 </figure>
@@ -134,7 +131,7 @@
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
   <div>
     <h4>Previous topic</h4>
@@ -143,8 +140,8 @@
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="../guides/developer_guide.html"
-                          title="next chapter">Developer Guide</a></p>
+    <p class="topless"><a href="modelzoo.html"
+                          title="next chapter">Customized Applications of <em>pyDeltaRCM</em></a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -153,7 +150,7 @@
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -161,32 +158,32 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../guides/developer_guide.html" title="Developer Guide"
+          <a href="modelzoo.html" title="Customized Applications of pyDeltaRCM"
              >next</a> |</li>
         <li class="right" >
           <a href="custom_saving.html" title="Saving custom fields to the output file"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">pyDeltaRCM 2.1.4 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pyDeltaRCM 2.1.9 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Examples of using and working with pyDeltaRCM</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Using custom classes with the Preprocessor</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, The DeltaRCM Team.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.0.
+    &#169; Copyright 2020, The DeltaRCM Team.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>
