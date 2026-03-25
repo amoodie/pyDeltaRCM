@@ -795,7 +795,9 @@ class SandRouter(BaseRouter):
             transport capacity is not yet reached (`qs_loc < qs_cap`).
         """
         U_loc = self.uw[px, py]
-        qs_cap = self.qs0 * self._f_bedload / self._u0**self._beta * U_loc**self._beta
+        qs_cap = (
+            (self.qs0 * self._f_bedload) * (U_loc**self._beta) / (self._u0**self._beta)
+        )
         qs_loc = self.qs[px, py]
         ero_mod_loc = self.mod_erosion[px, py]
 
