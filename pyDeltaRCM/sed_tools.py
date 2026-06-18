@@ -779,7 +779,7 @@ class SandRouter(BaseRouter):
                 )  # add remaining volume to exported
 
             # force hard stop if reaching true stepmax
-            if it > self.stepmax:
+            if it >= self.stepmax:
                 sed_continue = False
                 self.Vp_lost = (
                     self.Vp_lost + self.Vp_res
@@ -992,6 +992,11 @@ class MudRouter(BaseRouter):
         """Route one parcel."""
         it = 0
         sed_continue = True
+        force_deposit_bool = False  # aka False
+        force_deposit_volume = 0
+        mc_threshold = (
+            self.stepmax - self.force_mc
+        )  # force deposition at this threshold
 
         while sed_continue:
             # Choose the next location for the parcel to travel
@@ -1013,7 +1018,7 @@ class MudRouter(BaseRouter):
                 )  # add remaining volume to exported
 
             # force hard stop if reaching true stepmax
-            if it > self.stepmax:
+            if it >= self.stepmax:
                 sed_continue = False
                 self.Vp_lost = (
                     self.Vp_lost + self.Vp_res
