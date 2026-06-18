@@ -579,6 +579,7 @@ class init_tools(abc.ABC):
 
         self.inlet = np.array(np.unique(np.where(self.cell_type == 1)[1]))
         self.eta[:] = self.stage - self.depth
+        self.eta_init[:] = self.eta
 
         # update eta trackers with initial bed elevation
         self.eta0[:] = self.eta[:]
@@ -615,6 +616,7 @@ class init_tools(abc.ABC):
             self._lambda,
             self._beta,
             self.stepmax,
+            self.force_mc,
             self.theta_mud,
             self.mod_erosion,
         )
@@ -636,6 +638,7 @@ class init_tools(abc.ABC):
             self.dry_depth,
             self._beta,
             self.stepmax,
+            self.force_mc,
             self.theta_sand,
             self.mod_erosion,
         )

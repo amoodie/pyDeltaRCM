@@ -319,6 +319,7 @@ r_spec = [
     ("num_starts", int64),
     ("start_indices", int64[:]),
     ("stepmax", float32),
+    ("force_mc", int64),
     ("px", int64),
     ("py", int64),
     ("eta", float32[:, :]),
@@ -432,11 +433,14 @@ class BaseRouter:
         return istep, jstep, dist
 
     @abc.abstractmethod
-    def _deposit_or_erode(self, px: int, py: int):
+    def _deposit_or_erode(self, px: int, py: int, force_deposit: int):
         """Determine whether to erode or deposit.
 
         This is the decision making component of the routine, and will be
-        different for sand vs mud.
+        different for sand vs mud. `force_deposit` > 0 should force a volume of
+        deposition regardless of rules.
+
+        See sand and mud routers for examples to implement this method.
         """
         ...
 
@@ -601,6 +605,7 @@ class SandRouter(BaseRouter):
         dry_depth: float,
         beta: float,
         stepmax,
+        force_mc,
         theta_sed: float,
         mod_erosion,
     ) -> None:
@@ -614,19 +619,16 @@ class SandRouter(BaseRouter):
         self.U_ero_sand = U_ero_sand
         self._f_bedload = f_bedload
 
-        (
-            self.ivec_flat,
-            self.jvec_flat,
-        ) = (
-            ivec_flat,
-            jvec_flat,
-        )
-        self.iwalk_flat, self.jwalk_flat = iwalk_flat, jwalk_flat
+        self.ivec_flat = ivec_flat
+        self.jvec_flat = jvec_flat
+        self.iwalk_flat = iwalk_flat
+        self.jwalk_flat = jwalk_flat
         self.distances_flat = distances_flat
 
         self.dry_depth = dry_depth
         self._beta = beta
         self.stepmax = stepmax
+        self.force_mc = force_mc
         self.theta_sed = theta_sed
         self.mod_erosion = mod_erosion
 
@@ -730,19 +732,28 @@ class SandRouter(BaseRouter):
             methods to pick the next location.
 
             4. call the :obj:`_deposit_or_erode` method to detemine whether to
-            deposit or erode sediment. This method is implemented
-            *differently* for sand and mud routing, and depends on a multitude
-            of different model variables. This step modifies the bed elevation
-            and flow depth fields (in subfunction :obj:`_update_fields`),
-            which necessitates finding the new weights for routing on each
-            step. Also, the volume of sediment is either increased or
-            decreased (erosion or deposition).
+            deposit or erode sediment. This method is implemented *differently*
+            for sand and mud routing, and depends on a multitude of different
+            model variables. This step modifies the bed elevation and flow depth
+            fields (in subfunction :obj:`_update_fields`), which necessitates
+            finding the new weights for routing on each step. Also, the volume
+            of sediment is either increased or decreased (erosion or
+            deposition).
 
             5. repeat from 3, until `stepmax` is reached, or an "edge" cell is
-            reached.
+            reached. Optionally, allow deposition to be forced if the parcel has
+            not deposited all sediment by theshold determined by `force_mc`.
         """
+        # initialize iteration and continue flag
+        # print("NEW PARCEL")
         it = 0
         sed_continue = True
+        # initialize components to force deposition
+        force_deposit_bool = False  # aka False
+        force_deposit_volume = 0
+        mc_threshold = (
+            self.stepmax - self.force_mc
+        )  # force deposition at this threshold
 
         while sed_continue:
             px0 = px
@@ -755,20 +766,35 @@ class SandRouter(BaseRouter):
             py = py0 + istep
 
             self._partition_sediment(px0, py0, px, py, dist)
-            self._deposit_or_erode(px, py)
+            self._deposit_or_erode(px, py, force_deposit_volume)
 
             # update iteration count and check for stopping criteria
             it += 1
-            if self.cell_type[px, py] == -1:  # check for "edge" cell
+
+            # check for "edge" cell to stop
+            if self.cell_type[px, py] == -1:
                 sed_continue = False  # kill the `while` loop
                 self.Vp_exported = (
                     self.Vp_exported + self.Vp_res
                 )  # add remaining volume to exported
-            if it == self.stepmax:
+
+            # force hard stop if reaching true stepmax
+            if it > self.stepmax:
                 sed_continue = False
                 self.Vp_lost = (
                     self.Vp_lost + self.Vp_res
                 )  # add remaining volume to lost
+
+            # otherwise, check for mc_threshold
+            elif self.force_mc and (
+                it >= mc_threshold
+            ):  # check force_mc first, minimal speed cost on default settings
+                # set up deposition volume on first iteration only
+                if not force_deposit_bool:
+                    force_deposit_bool = True
+                    steps_left = self.stepmax - it
+                    force_deposit_volume = float(self.Vp_res / (steps_left + 1))
+                    # print(f"  FORCING DEPOSIT VOLUME: {force_deposit_volume:.2e}")
 
     def _partition_sediment(
         self, px0: int, py0: int, px: int, py: int, dist: float
@@ -779,15 +805,19 @@ class SandRouter(BaseRouter):
             self.qs[px0, py0] += partition  # deposition in current cell
             self.qs[px, py] += partition  # deposition in new cell
 
-    def _deposit_or_erode(self, px: int, py: int) -> None:
+    def _deposit_or_erode(self, px: int, py: int, force_deposit_volume: float) -> None:
         """Decide if deposit or erode sand.
 
-        .. note:: Volumetric change is limited to 1/4 local cell water volume.
+        .. note::
+
+            Volumetric change is typically limited to 1/4 local cell water
+            volume. This can be modified with the use of the `mod_erosion` hook
+            array.
 
         Sand deposition:
             If more sediment is in transport (`qs_loc`) than the determined
-            transport capacity of the cell (`qs_cap`), sediment needs to
-            deposit on the bed.
+            transport capacity of the cell (`qs_cap`), sediment needs to deposit
+            on the bed.
         Sand erosion:
             Can only occur if local velocity (`U_loc`) is greater than the
             critical erosion threshold for sand
@@ -802,7 +832,10 @@ class SandRouter(BaseRouter):
         ero_mod_loc = self.mod_erosion[px, py]
 
         Vp_change = 0
-        if qs_loc > qs_cap:
+        if force_deposit_volume > 0:
+            Vp_change = force_deposit_volume  # force this volume to deposit, regardless of stability
+
+        elif qs_loc > qs_cap:
             # Sand deposition
             #     If more sediment is in transport than the determined
             #     transport capacity of the cell (`qs_cap`), sediment needs to
@@ -877,6 +910,7 @@ class MudRouter(BaseRouter):
         _lambda,
         beta: float,
         stepmax,
+        force_mc,
         theta_sed: float,
         mod_erosion,
     ) -> None:
@@ -898,6 +932,7 @@ class MudRouter(BaseRouter):
         self._lambda = _lambda
         self._beta = beta
         self.stepmax = stepmax
+        self.force_mc = force_mc
         self.theta_sed = theta_sed
         self.mod_erosion = mod_erosion
 
@@ -965,22 +1000,37 @@ class MudRouter(BaseRouter):
             px = px + jstep
             py = py + istep
 
-            self._deposit_or_erode(px, py)
+            self._deposit_or_erode(px, py, force_deposit_volume)
 
             # update iteration count and check for stopping criteria
             it += 1
-            if self.cell_type[px, py] == -1:  # check for "edge" cell
+
+            # check for "edge" cell to stop
+            if self.cell_type[px, py] == -1:
                 sed_continue = False  # kill the `while` loop
                 self.Vp_exported = (
                     self.Vp_exported + self.Vp_res
                 )  # add remaining volume to exported
-            if it == self.stepmax:
+
+            # force hard stop if reaching true stepmax
+            if it > self.stepmax:
                 sed_continue = False
                 self.Vp_lost = (
                     self.Vp_lost + self.Vp_res
                 )  # add remaining volume to lost
 
-    def _deposit_or_erode(self, px: int, py: int) -> None:
+            # otherwise, check for mc_threshold
+            elif self.force_mc and (
+                it >= mc_threshold
+            ):  # check force_mc first, minimal speed cost on default settings
+                # set up deposition volume on first iteration only
+                if not force_deposit_bool:
+                    force_deposit_bool = True
+                    steps_left = self.stepmax - it
+                    force_deposit_volume = float(self.Vp_res / (steps_left + 1))
+                    # print(f"  FORCING DEPOSIT VOLUME: {force_deposit_volume:.2e}")
+
+    def _deposit_or_erode(self, px: int, py: int, force_deposit_volume: float) -> None:
         """Decide if deposit or erode mud.
 
         .. note:: Volumetric change is limited to 1/4 local cell water volume.
@@ -991,7 +1041,10 @@ class MudRouter(BaseRouter):
         ero_mod_loc = self.mod_erosion[px, py]
 
         Vp_change = 0
-        if U_loc < self.U_dep_mud:
+        if force_deposit_volume > 0:
+            Vp_change = force_deposit_volume  # force this volume to deposit, regardless of stability
+
+        elif U_loc < self.U_dep_mud:
             Vp_change = (
                 self._lambda
                 * self.Vp_res
@@ -1007,7 +1060,7 @@ class MudRouter(BaseRouter):
                 self.mod_stable_weight[px, py],
             )
 
-        if U_loc > self.U_ero_mud:
+        elif U_loc > self.U_ero_mud:
             Vp_change = self._compute_Vp_ero(
                 self.Vp_sed, U_loc, self.U_ero_mud, self._beta, ero_mod_loc
             )

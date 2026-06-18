@@ -1325,6 +1325,27 @@ class DeltaModel(
         self._stepmax = stepmax
 
     @property
+    def force_mc(self) -> int:
+        """
+        `force_mc` is a flag to force mass conservation of sediment parcels that
+        are stuck in loops.
+        
+        If a sediment parcel reaches the maximum number of steps with any
+        sediment volume remaining, then that sediment is vanished from the
+        model. Ocassionally, sediment parcels may become stuck in a loop inside
+        the delta (e.g., a small lake). In this case, the default behavior is to
+        vanish the sediment volume at `stepmax`. Optionally, change `force_mc`
+        to an integer number of steps before `stepmax`, after which any
+        remaining volume of sediment in the parcel will be deposited over the
+        following `force_mc` steps. 
+        """
+        return self._force_mc
+
+    @force_mc.setter
+    def force_mc(self, force_mc: bool) -> None:
+        self._force_mc = int(force_mc)
+
+    @property
     def clobber_netcdf(self) -> bool:
         """
         Allows overwriting (clobbering) of an existing netCDF output file.
